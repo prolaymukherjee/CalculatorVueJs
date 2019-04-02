@@ -1,7 +1,7 @@
 <template>
     <div class="calculator">
         <div class="display2">
-            <small class="final-amount-title">--FINAL PRICE--</small>
+            <small class="final-amount-title">--------FINAL PRICE--------</small>
             <span class="final-amount">{{ percent() }}</span>
         </div>
         <div class="display">
@@ -10,7 +10,7 @@
                 <span class="tax-amount">8<span class="percentage">%</span></span>
             </div>
             <div class="right">
-                <small class="before-tax">Before Tax</small>
+                <small class="before-tax">BEFORE TAX</small>
                 <span class="input-title">{{ current || '0' }}</span>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div @click="append('3')" class="btn">3</div>
         <div @click="dot" class="btn">.</div>
         <div @click="append('0')" class="btn">0</div>
-        <div @click="clear" class="btn">x</div>
+        <div @click="clear" class="btn" ><span class="cl">x</span></div>
     </div>
 </template>
 
@@ -89,17 +89,18 @@
         align-items: center;
         flex-direction: column;
         height: 100%;
-        padding-bottom: 25px;
+        padding-bottom: 40px;
     }
 
     .display {
         grid-column: 1 / 4;
         background: white;
         box-shadow: 0 0 15px #363C4C;
-        height: 80%;
+        height: 75%;
         display: flex;
         margin-top: 30px;
         align-items: center;
+        padding-bottom: 10px;
     }
 
     .left-box {
@@ -109,8 +110,8 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 30%;
-        height: 95%;
+        width: 25%;
+        height: 90%;
     }
 
     .before-tax {
@@ -119,14 +120,15 @@
     }
 
     .input-title {
-        font-size: 40px;
+        font-size: 20px;
         font-weight: 100;
+
     }
 
     .tax-amount-title {
-        color: white;
-        font-size: 7px;
-        font-weight: 500;
+        color: #B8EDB4;
+        font-size: 10px;
+        font-weight: 100;
         text-align: center;
         letter-spacing: 1px;
         width: 60%;
@@ -140,6 +142,10 @@
         color: white;
 
     }
+    .percentage{
+        font-size: 15px;
+    }
+
 
     .final-amount {
         font-size: 62px;
@@ -147,7 +153,7 @@
     }
 
     .final-amount-title {
-        font-size: 10px;
+        font-size: 12px;
         margin-top: 15px;
     }
 
@@ -172,13 +178,20 @@
         transparent: 30%;
 
     }
+    .cl{
+        background-color: white;
+        width: 35px;
+        color: black;
+       /* border-left-radius: 5px;*/
+        border-radius: 80%;
+   }
 
     .btn:hover {
 
-        /*box-shadow: 0px 0px 10px;*/
-        /*transparent: 30%;*/
-        transform: translate(1px, 3px)
-        /*position: relative;*/
+        box-shadow: 0px 0px 10px;
+        transparent: 30%;
+        transform: translate(1px, 3px);
+        position: relative;
         /*top: -5px;*/
     }
 
